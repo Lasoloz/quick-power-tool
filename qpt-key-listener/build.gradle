@@ -8,19 +8,15 @@ repositories {
     mavenCentral()
 }
 
-ext {
-
-}
-
 dependencies {
+    // Projects
+    implementation project(":qpt-actions")
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     // Keymaster
     implementation "com.github.tulskiy:jkeymaster:$keymasterVersion"
-
-    // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
 
     // Tests
     testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
