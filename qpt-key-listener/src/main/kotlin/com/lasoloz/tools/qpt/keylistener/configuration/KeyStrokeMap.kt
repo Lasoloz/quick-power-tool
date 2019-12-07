@@ -1,5 +1,6 @@
 package com.lasoloz.tools.qpt.keylistener.configuration
 
 import com.lasoloz.tools.qpt.actions.Action
+import javax.swing.KeyStroke
 
-typealias KeyStrokeMap = Map<String, Action>
+typealias KeyStrokeActionsMap = Map<KeyStroke, Action>
