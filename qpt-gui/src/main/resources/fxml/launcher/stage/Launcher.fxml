@@ -1,0 +1,7 @@
+<?import com.lasoloz.tools.qpt.gui.launcher.component.LaunchBarComponent?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane>
+    <top>
+        <LaunchBarComponent/>
+    </top>
+</BorderPane>
