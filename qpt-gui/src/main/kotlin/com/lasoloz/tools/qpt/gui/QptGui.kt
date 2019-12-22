@@ -6,6 +6,9 @@ import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.application.Application
 import javafx.stage.Stage
 
+/**
+ * QptGui is the application implementation for JavaFX
+ */
 class QptGui : Application() {
     private lateinit var stageConfig: StageConfig
 

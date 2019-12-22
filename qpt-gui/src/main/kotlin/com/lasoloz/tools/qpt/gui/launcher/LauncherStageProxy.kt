@@ -8,8 +8,11 @@ import javafx.scene.Scene
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 
+/**
+ * Stage proxy implementation for the launcher stage
+ */
 class LauncherStageProxy : StageProxy {
-    lateinit var launcher: Stage
+    private lateinit var launcher: Stage
 
     override fun initStage() {
         FXMLLoader.load<Parent>(javaClass.getResource(LAUNCHER_RESOURCE_PATH)).let { root ->

@@ -1,7 +1,7 @@
 package com.lasoloz.tools.qpt.gui.stage
 
 /**
- * Stage container interface
+ * Stage proxy interface
  *
  * Every implementation must provide a way to show and hide stages, and also to get the state of the stage, so showing
  * and hiding can be toggled properly

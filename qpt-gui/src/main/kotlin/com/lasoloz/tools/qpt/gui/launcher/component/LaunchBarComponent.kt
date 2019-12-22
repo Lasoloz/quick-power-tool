@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 
+/**
+ * Launch bar component for searching launch configurations and opening settings or quitting the launch window
+ */
 class LaunchBarComponent : Pane() {
     init {
         FXMLLoader(javaClass.getResource(LAUNCH_BAR_RESOURCE_PATH)).let { loader ->
