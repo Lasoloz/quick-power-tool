@@ -1,0 +1,71 @@
+.root {
+    -fx-font-size: 18pt;
+    -fx-font-family: "Noto Sans";
+    -fx-border-width: 2px;
+    -fx-border-color: #4a454f;
+}
+
+.base-color {
+    -fx-color: #f0f0f0;
+    -fx-text-fill: #f0f0f0;
+    -fx-background-color: #343139;
+}
+
+.base-transparent {
+    -fx-color: #f0f0f0;
+    -fx-text-fill: #f0f0f0;
+    -fx-background-color: transparent;
+}
+
+
+/* Pane overrides*/
+.border-pane, .scroll-pane {
+    -fx-border-width: 0;
+}
+
+/* Scroll pane overrides */
+.scroll-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* Button overrides */
+.button {
+    -fx-padding: 5px;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+/* TODO: From code make it a transition*/
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Scrollbar overrides: */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar, .scroll-bar:pressed, .scroll-bar:focused {
+    -fx-font-size: 20px;
+    -fx-pref-width: 20px;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+}
+
+.thumb {
+    -fx-background-radius: 0;
+    -fx-background-color: #434148;
+    -fx-border-width: 2px;
+    -fx-border-color: #58535d;
+}
+
+.thumb:hover, .thumb:pressed {
+    -fx-background-color: #58535d;
+}
+
+.increment-button, .decrement-button, .increment-arrow, .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

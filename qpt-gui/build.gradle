@@ -36,6 +36,9 @@ dependencies {
     // DI
     implementation "com.google.inject:guice:$guiceVersion"
 
+    // Observer
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
     // Tests
     testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"

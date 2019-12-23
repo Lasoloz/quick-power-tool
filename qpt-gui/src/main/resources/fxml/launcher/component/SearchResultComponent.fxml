@@ -1,0 +1,60 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox styleClass="base-transparent">
+    <Label styleClass="base-color">Search result component</Label>
+    <Label styleClass="base-transparent">Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum</Label>
+    <Label>Lorem ipsum last</Label>
+</VBox>

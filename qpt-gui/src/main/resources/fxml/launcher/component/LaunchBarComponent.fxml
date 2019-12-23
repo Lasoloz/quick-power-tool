@@ -1,2 +1,23 @@
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<Label>Launch Bar Component. TODO!</Label>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<ToolBar styleClass="base-transparent" fx:controller="com.lasoloz.tools.qpt.gui.launcher.component.LaunchBarController"
+         xmlns:fx="http://javafx.com/fxml" fx:id="toolbar">
+    <Label styleClass="base-transparent">Launch Bar Component. TODO!</Label>
+    <Pane HBox.hgrow="ALWAYS"/>
+    <Button styleClass="base-color" onAction="#exitButtonAction">
+        <font>
+            <Font size="20.0"/>
+        </font>
+        <graphic>
+            <ImageView fitWidth="20.0" fitHeight="20.0">
+                <Image url="/image/close_material_white_512.png"/>
+            </ImageView>
+        </graphic>
+    </Button>
+</ToolBar>
