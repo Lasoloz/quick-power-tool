@@ -10,6 +10,7 @@ import javafx.stage.Stage
  * QptGui is the application implementation for JavaFX
  */
 class QptGui : Application() {
+    // FIXME: Maybe this needs removal?
     private lateinit var stageConfig: StageConfig
 
     override fun start(ignoredStage: Stage) {

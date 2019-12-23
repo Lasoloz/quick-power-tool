@@ -1,6 +1,7 @@
 package com.lasoloz.tools.qpt.gui.testing
 
 import com.lasoloz.tools.qpt.gui.QptGui
+import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.gui.launcher.LAUNCHER_NAME_KEY
 import com.lasoloz.tools.qpt.gui.stage.StageConfig
 import com.lasoloz.tools.qpt.injections.InjectorUtil
@@ -9,7 +10,10 @@ import javafx.application.Platform
 import kotlin.concurrent.thread
 
 fun main() {
-    InjectorUtil.registerModule(TestingApplicationModule())
+    with(InjectorUtil) {
+        registerModule(TestingApplicationModule())
+        registerModule(GuiModule())
+    }
     thread {
         Platform.setImplicitExit(false)
         Application.launch(QptGui::class.java)

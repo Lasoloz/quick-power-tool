@@ -10,7 +10,7 @@ ext {
     keymasterVersion = "1.2"
     slf4jJdk14Version = "1.7.13"
     rxJavaVersion = "2.2.15"
-    guiceVersion = "4.1.0"
+    guiceVersion = "4.2.2"
 
     // Tests
     jupiterVersion = "5.3.1"

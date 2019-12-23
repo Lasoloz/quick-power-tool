@@ -1,11 +1,9 @@
 package com.lasoloz.tools.qpt.gui.stage
 
+import com.google.inject.Inject
+
 /**
  * Stage configurations for an application
  */
-interface StageConfig {
-    /**
-     * Get stage proxies by name
-     */
-    val stageProxyMap: Map<String, StageProxy>
-}
+@JvmSuppressWildcards
+data class StageConfig @Inject constructor(val stageProxyMap: Map<String, StageProxy>)

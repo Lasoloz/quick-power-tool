@@ -1,15 +1,22 @@
 package com.lasoloz.tools.qpt.gui.testing
 
 import com.google.inject.AbstractModule
+import com.google.inject.Scopes
+import com.google.inject.multibindings.MapBinder
 import com.lasoloz.tools.qpt.gui.launcher.LAUNCHER_NAME_KEY
 import com.lasoloz.tools.qpt.gui.launcher.LauncherStageProxy
-import com.lasoloz.tools.qpt.gui.stage.SimpleStageConfig
 import com.lasoloz.tools.qpt.gui.stage.StageConfig
+import com.lasoloz.tools.qpt.gui.stage.StageProxy
 
 class TestingApplicationModule : AbstractModule() {
     override fun configure() {
-        bind(StageConfig::class.java).toInstance(SimpleStageConfig().also {
-            it.addStageProxy(LAUNCHER_NAME_KEY, LauncherStageProxy())
-        })
+        bindStageProxies()
+        bind(StageConfig::class.java).`in`(Scopes.SINGLETON)
+    }
+
+    private fun bindStageProxies() {
+        MapBinder.newMapBinder(binder(), String::class.java, StageProxy::class.java).let {
+            it.addBinding(LAUNCHER_NAME_KEY).to(LauncherStageProxy::class.java)
+        }
     }
 }
