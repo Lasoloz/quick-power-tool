@@ -4,36 +4,47 @@ import com.google.inject.Guice
 import com.google.inject.Injector
 import com.google.inject.Module
 
-class InjectorUtil {
-    companion object {
-        private var injector: Injector? = null
-        private var moduleChange = false
+/**
+ * Injector utility for creating a single injector instance for the whole application in a thread-safe manner
+ */
+object InjectorUtil {
+    private var injector: Injector? = null
+    private var moduleChange = false
 
-        private val modules = mutableListOf<Module>()
-        private val lock = Object()
+    private val modules = mutableListOf<Module>()
+    private val lock = Object()
 
-        fun getInjector(): Injector {
-            synchronized(lock) {
-                return if (moduleChange) {
-                    createInjector()
-                } else {
-                    injector ?: createInjector()
-                }
+    /**
+     * Get injector instance for the application (thread-safe)
+     *
+     * @return Injector singleton instance
+     */
+    fun getInjector(): Injector {
+        synchronized(lock) {
+            return if (moduleChange) {
+                createInjector()
+            } else {
+                injector ?: createInjector()
             }
         }
+    }
 
-        fun registerModule(module: Module) {
-            synchronized(lock) {
-                modules.add(module)
-                moduleChange = true
-            }
+    /**
+     * Register a Guice module and mark injector for recreation (thread-safe)
+     *
+     * @param module Guice module to register
+     */
+    fun registerModule(module: Module) {
+        synchronized(lock) {
+            modules.add(module)
+            moduleChange = true
         }
+    }
 
-        private fun createInjector(): Injector {
-            return Guice.createInjector(modules).also {
-                injector = it
-                moduleChange = false
-            }
+    private fun createInjector(): Injector {
+        return Guice.createInjector(modules).also {
+            injector = it
+            moduleChange = false
         }
     }
 }
