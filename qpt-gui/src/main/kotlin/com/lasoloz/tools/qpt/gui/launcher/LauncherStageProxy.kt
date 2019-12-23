@@ -1,8 +1,10 @@
 package com.lasoloz.tools.qpt.gui.launcher
 
 import com.google.inject.Inject
+import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.gui.stage.StageProxy
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
+import com.lasoloz.tools.qpt.gui.util.GUI_RESOURCE_BUNDLE_NAME
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
@@ -12,8 +14,12 @@ import java.util.*
 
 /**
  * Stage proxy implementation for the launcher stage
+ *
+ * @param resourceBundle Resource bundle for translations
  */
-class LauncherStageProxy @Inject constructor(private val resourceBundle: ResourceBundle) : StageProxy {
+@JvmSuppressWildcards
+class LauncherStageProxy
+@Inject constructor(@Named(GUI_RESOURCE_BUNDLE_NAME) private val resourceBundle: ResourceBundle) : StageProxy {
     private lateinit var launcher: Stage
 
     override fun initStage() {

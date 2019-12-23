@@ -1,13 +1,26 @@
 package com.lasoloz.tools.qpt.gui.injection
 
 import com.google.inject.AbstractModule
+import com.google.inject.Provides
+import com.lasoloz.tools.qpt.coreutils.resource.ResourceBundleUtil
+import com.lasoloz.tools.qpt.gui.util.GUI_RESOURCE_BUNDLE_NAME
 import com.lasoloz.tools.qpt.gui.util.MESSAGES_RESOURCE_BUNDLE_PATH
-import java.io.InputStreamReader
 import java.util.*
+import javax.inject.Named
 
+/**
+ * Guice module for the GUI
+ */
+@Suppress("unused")
 class GuiModule : AbstractModule() {
-    override fun configure() {
-        // TODO: Solve UTF-8 issue & make this use a map with specific keys maybe like in the other?
-        bind(ResourceBundle::class.java).toInstance(ResourceBundle.getBundle(MESSAGES_RESOURCE_BUNDLE_PATH))
-    }
+    override fun configure() {}
+
+    /**
+     * Gui module resource bundle provider
+     *
+     * @return Resource bundle for gui module
+     */
+    @Provides
+    @Named(GUI_RESOURCE_BUNDLE_NAME)
+    fun provideGuiResourceBundle(): ResourceBundle = ResourceBundleUtil.getUtf8Bundle(MESSAGES_RESOURCE_BUNDLE_PATH)
 }

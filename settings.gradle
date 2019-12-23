@@ -5,4 +5,5 @@ include 'qpt-application'
 include 'qpt-basic-action-types'
 include 'qpt-gui'
 include 'qpt-injections'
+include 'qpt-core-utils'
 

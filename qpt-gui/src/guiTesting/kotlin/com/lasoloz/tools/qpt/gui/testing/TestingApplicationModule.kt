@@ -15,8 +15,7 @@ class TestingApplicationModule : AbstractModule() {
     }
 
     private fun bindStageProxies() {
-        MapBinder.newMapBinder(binder(), String::class.java, StageProxy::class.java).let {
-            it.addBinding(LAUNCHER_NAME_KEY).to(LauncherStageProxy::class.java)
-        }
+        MapBinder.newMapBinder(binder(), String::class.java, StageProxy::class.java)
+            .addBinding(LAUNCHER_NAME_KEY).to(LauncherStageProxy::class.java)
     }
 }
