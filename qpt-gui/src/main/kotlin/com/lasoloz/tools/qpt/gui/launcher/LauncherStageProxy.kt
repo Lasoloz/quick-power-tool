@@ -32,7 +32,7 @@ class LauncherStageProxy
     private lateinit var launcher: Stage
 
     override fun initStage() {
-        FXMLLoader.load<Parent>(javaClass.getResource(LAUNCHER_RESOURCE_PATH)).let { root ->
+        FXMLLoader.load<Parent>(javaClass.getResource(LAUNCHER_RESOURCE_PATH), resourceBundle).let { root ->
             launcher = Stage(StageStyle.UNDECORATED)
             launcher.scene = Scene(root, LAUNCHER_DEFAULT_WIDTH, LAUNCHER_DEFAULT_HEIGHT).also {
                 it.stylesheets.add(DEFAULT_STYLESHEET_PATH)

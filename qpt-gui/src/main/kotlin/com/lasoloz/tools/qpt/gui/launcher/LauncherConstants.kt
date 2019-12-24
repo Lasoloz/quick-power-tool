@@ -12,7 +12,7 @@ object LauncherConstants {
     /**
      * Title key for localization
      */
-    const val LAUNCHER_TITLE_KEY = "launcher.stage.title"
+    const val LAUNCHER_TITLE_KEY = "launcher.title"
     /**
      * Default width of the launcher
      */
@@ -30,6 +30,7 @@ object LauncherConstants {
      * Launch bar stylesheet path
      */
     const val LAUNCH_BAR_STYLESHEET_PATH = "/fxml/launcher/component/LaunchBarComponent.css"
+    const val LAUNCH_BAR_PROMPT_KEY = "launcher.launchBar.prompt"
 
     /**
      * Search result component resource path
