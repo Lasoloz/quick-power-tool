@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <ToolBar styleClass="base-transparent" fx:controller="com.lasoloz.tools.qpt.gui.launcher.component.LaunchBarController"
-         xmlns:fx="http://javafx.com/fxml" prefWidth="596.0">
-    <PersistentPromptTextField fx:id="textField" promptText="%launcher.launchBar.prompt"
+         xmlns:fx="http://javafx.com/fxml" prefWidth="598.0">
+    <PersistentPromptTextField fx:id="textField" styleClass="base-transparent" promptText="%launcher.launchBar.prompt"
                                onKeyReleased="#keyOnReleaseAction"/>
     <Pane HBox.hgrow="ALWAYS"/>
     <Button styleClass="base-color" onAction="#exitButtonAction">

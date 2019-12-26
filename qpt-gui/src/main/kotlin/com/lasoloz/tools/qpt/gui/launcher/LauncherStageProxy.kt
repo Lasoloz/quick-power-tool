@@ -22,6 +22,7 @@ import java.util.*
  * Stage proxy implementation for the launcher stage
  *
  * @param resourceBundle Resource bundle for translations
+ * @param launcherState Launcher state for holding launcher specific options
  */
 @JvmSuppressWildcards
 class LauncherStageProxy

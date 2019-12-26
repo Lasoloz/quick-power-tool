@@ -12,12 +12,20 @@ import javafx.scene.input.KeyEvent
 import java.net.URL
 import java.util.*
 
+/**
+ * Launch bar controller
+ */
 class LaunchBarController : Initializable {
     private lateinit var launcherState: LauncherState
 
     @FXML
     private lateinit var textField: PersistentPromptTextField
 
+    /**
+     * Inject launcher state
+     *
+     * @param launcherState Launcher state
+     */
     @Inject
     fun setLauncherState(launcherState: LauncherState) {
         this.launcherState = launcherState

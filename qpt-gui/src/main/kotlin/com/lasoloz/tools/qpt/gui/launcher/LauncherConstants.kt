@@ -1,5 +1,8 @@
 package com.lasoloz.tools.qpt.gui.launcher
 
+/**
+ * Launcher specific constants
+ */
 object LauncherConstants {
     /**
      * Launcher window name key for injection
@@ -30,10 +33,9 @@ object LauncherConstants {
      * Launch bar stylesheet path
      */
     const val LAUNCH_BAR_STYLESHEET_PATH = "/fxml/launcher/component/LaunchBarComponent.css"
-    const val LAUNCH_BAR_PROMPT_KEY = "launcher.launchBar.prompt"
 
     /**
      * Search result component resource path
      */
-    const val SEARCH_RESULT_RESOURCE_PATH = "/fxml/launcher/component/SearchResultComponent.fxml"
+    const val SEARCH_RESULT_RESOURCE_PATH = "/fxml/launcher/component/SearchResultsComponent.fxml"
 }

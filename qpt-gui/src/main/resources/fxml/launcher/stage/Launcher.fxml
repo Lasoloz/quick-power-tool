@@ -1,5 +1,5 @@
 <?import com.lasoloz.tools.qpt.gui.launcher.component.LaunchBarComponent?>
-<?import com.lasoloz.tools.qpt.gui.launcher.component.SearchResultComponent?>
+<?import com.lasoloz.tools.qpt.gui.launcher.component.SearchResultsComponent?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane styleClass="base-color">
@@ -8,7 +8,7 @@
     </top>
     <center>
         <ScrollPane hbarPolicy="NEVER" styleClass="base-transparent">
-            <SearchResultComponent styleClass="base-transparent"/>
+            <SearchResultsComponent styleClass="base-transparent"/>
         </ScrollPane>
     </center>
 </BorderPane>

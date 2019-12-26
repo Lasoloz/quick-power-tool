@@ -1,5 +1,8 @@
 package com.lasoloz.tools.qpt.gui.util
 
+/**
+ * Gui specific constants
+ */
 object Constants {
     /**
      * Resource bundle key for the gui module

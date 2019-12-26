@@ -1,7 +1,9 @@
 .root {
     -fx-font-size: 18pt;
     -fx-font-family: "Noto Sans";
-    -fx-border-width: 2px;
+    -fx-background-color: transparent;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-width: 1px;
     -fx-border-color: #4a454f;
 }
 
@@ -29,6 +31,10 @@
     -fx-padding: 0;
 }
 
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
 /* Button overrides */
 .button {
     -fx-padding: 5px;
@@ -42,8 +48,8 @@
 }
 
 /* Text field*/
-.persistent-prompt:focused {
-    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+.persistent-prompt, .persistent-prompt:focused {
+    -fx-prompt-text-fill: #7a787f;
 }
 
 .no-prompt {
@@ -53,19 +59,20 @@
 /* Scrollbar overrides: */
 .scroll-bar {
     -fx-background-color: transparent;
+    -fx-border-width: 0 0 0 1px;
+    -fx-border-color: #58535d;
 }
 
 .scroll-bar, .scroll-bar:pressed, .scroll-bar:focused {
     -fx-font-size: 20px;
     -fx-pref-width: 20px;
     -fx-padding: 0;
-    -fx-border-width: 0;
 }
 
 .thumb {
     -fx-background-radius: 0;
     -fx-background-color: #434148;
-    -fx-border-width: 2px;
+    -fx-border-width: 0px;
     -fx-border-color: #58535d;
 }
 

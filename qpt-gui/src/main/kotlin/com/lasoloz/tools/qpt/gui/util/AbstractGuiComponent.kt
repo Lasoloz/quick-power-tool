@@ -8,6 +8,9 @@ import javafx.scene.Node
 import javafx.scene.layout.Pane
 import java.util.*
 
+/**
+ * Abstract component enclosing gui specific component creation
+ */
 abstract class AbstractGuiComponent(resourcePath: String) : Pane() {
     init {
         val resources = InjectorUtil.getInjector()
