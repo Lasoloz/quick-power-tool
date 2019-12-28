@@ -28,6 +28,7 @@ task runGuiTesting(type: JavaExec) {
 dependencies {
     // Modules
     implementation project(":qpt-core-utils")
+    implementation project(":qpt-actions")
     implementation project(":qpt-injections")
 
     // Kotlin

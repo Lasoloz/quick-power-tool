@@ -20,6 +20,19 @@
 }
 
 
+/* Result separator*/
+.result-separator {
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #58535d;
+}
+
+.result-separator > .label {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: transparent;
+    -fx-font-weight: lighter;
+}
+
 /* Pane overrides*/
 .border-pane, .scroll-pane {
     -fx-border-width: 0;

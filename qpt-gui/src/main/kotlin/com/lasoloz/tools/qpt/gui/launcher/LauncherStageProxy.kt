@@ -2,15 +2,15 @@ package com.lasoloz.tools.qpt.gui.launcher
 
 import com.google.inject.Inject
 import com.google.inject.name.Named
+import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.I18n.LAUNCHER_TITLE_KEY
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCHER_DEFAULT_HEIGHT
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCHER_DEFAULT_WIDTH
-import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCHER_RESOURCE_PATH
-import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCHER_TITLE_KEY
+import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Paths.LAUNCHER_RESOURCE_PATH
 import com.lasoloz.tools.qpt.gui.stage.StageProxy
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LauncherState
-import com.lasoloz.tools.qpt.gui.util.Constants.DEFAULT_STYLESHEET_PATH
-import com.lasoloz.tools.qpt.gui.util.Constants.GUI_RESOURCE_BUNDLE_NAME
+import com.lasoloz.tools.qpt.gui.util.GuiConstants
+import com.lasoloz.tools.qpt.gui.util.GuiConstants.DEFAULT_STYLESHEET_PATH
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
@@ -27,7 +27,7 @@ import java.util.*
 @JvmSuppressWildcards
 class LauncherStageProxy
 @Inject constructor(
-    @Named(GUI_RESOURCE_BUNDLE_NAME) private val resourceBundle: ResourceBundle,
+    @Named(GuiConstants.Injection.GUI_RESOURCE_NAME_KEY) private val resourceBundle: ResourceBundle,
     private val launcherState: LauncherState
 ) : StageProxy {
     private lateinit var launcher: Stage

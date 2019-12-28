@@ -10,6 +10,12 @@ repositories {
 }
 
 dependencies {
+    // Module
+    implementation project(":qpt-injections")
+
+    // DI
+    implementation "com.google.inject:guice:$guiceVersion"
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }

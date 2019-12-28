@@ -7,8 +7,9 @@ import io.reactivex.subjects.BehaviorSubject
 /**
  * Launcher state and its observables
  */
-class LauncherState {
-    private var shownState = BehaviorSubject.createDefault(StageShownState.HIDDEN)
+@JvmSuppressWildcards
+class LauncherState /*@Inject constructor()*/ {
+    private val shownState = BehaviorSubject.createDefault(StageShownState.HIDDEN)
 
     /**
      * Set new stage shown state

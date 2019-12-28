@@ -10,8 +10,14 @@ repositories {
 }
 
 dependencies {
+    // Module
+    implementation project(":qpt-core-utils")
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // DI
+    implementation "com.google.inject:guice:$guiceVersion"
 
     // Tests
     testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"

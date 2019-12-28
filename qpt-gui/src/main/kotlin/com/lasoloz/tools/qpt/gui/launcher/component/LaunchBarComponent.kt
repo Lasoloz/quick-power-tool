@@ -1,7 +1,7 @@
 package com.lasoloz.tools.qpt.gui.launcher.component
 
-import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCH_BAR_RESOURCE_PATH
-import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.LAUNCH_BAR_STYLESHEET_PATH
+import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Paths.LAUNCH_BAR_RESOURCE_PATH
+import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Paths.LAUNCH_BAR_STYLESHEET_PATH
 import com.lasoloz.tools.qpt.gui.util.AbstractGuiComponent
 
 /**

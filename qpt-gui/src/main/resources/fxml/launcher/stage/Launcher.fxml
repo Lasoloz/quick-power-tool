@@ -7,7 +7,7 @@
         <LaunchBarComponent styleClass="base-color"/>
     </top>
     <center>
-        <ScrollPane hbarPolicy="NEVER" styleClass="base-transparent">
+        <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS" styleClass="base-transparent">
             <SearchResultsComponent styleClass="base-transparent"/>
         </ScrollPane>
     </center>

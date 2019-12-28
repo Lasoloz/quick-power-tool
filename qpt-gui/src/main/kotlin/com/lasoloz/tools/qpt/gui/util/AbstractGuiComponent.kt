@@ -10,11 +10,15 @@ import java.util.*
 
 /**
  * Abstract component enclosing gui specific component creation
+ *
+ * @param resourcePath Path to the FXML resource
  */
 abstract class AbstractGuiComponent(resourcePath: String) : Pane() {
     init {
         val resources = InjectorUtil.getInjector()
-            .getInstance(Key.get(ResourceBundle::class.java, Names.named(Constants.GUI_RESOURCE_BUNDLE_NAME)))
+            .getInstance(
+                Key.get(ResourceBundle::class.java, Names.named(GuiConstants.Injection.GUI_RESOURCE_NAME_KEY))
+            )
         FXMLLoader(javaClass.getResource(resourcePath), resources).let { loader ->
             val view = loader.load<Node>()
             children.add(view)

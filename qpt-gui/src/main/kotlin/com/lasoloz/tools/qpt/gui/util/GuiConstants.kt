@@ -3,11 +3,16 @@ package com.lasoloz.tools.qpt.gui.util
 /**
  * Gui specific constants
  */
-object Constants {
+object GuiConstants {
     /**
-     * Resource bundle key for the gui module
+     * Injection names
      */
-    const val GUI_RESOURCE_BUNDLE_NAME = "GuiResourceBundle"
+    object Injection {
+        /**
+         * Resource bundle key for the gui module
+         */
+        const val GUI_RESOURCE_NAME_KEY = "GuiResourceBundle"
+    }
 
     /**
      * Resource bundle path for i18n messages

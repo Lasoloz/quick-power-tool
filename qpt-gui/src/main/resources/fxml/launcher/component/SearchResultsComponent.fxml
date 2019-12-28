@@ -1,6 +1,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
+<?import com.lasoloz.tools.qpt.gui.launcher.component.results.ResultSeparatorComponent?>
 <VBox styleClass="base-transparent">
+    <ResultSeparatorComponent message="Recent configurations"/>
     <Label styleClass="base-color">Search result component</Label>
     <Label styleClass="base-transparent">Lorem ipsum</Label>
     <Label>Lorem ipsum</Label>

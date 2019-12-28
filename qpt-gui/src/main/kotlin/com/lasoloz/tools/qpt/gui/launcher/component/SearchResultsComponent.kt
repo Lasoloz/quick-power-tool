@@ -6,4 +6,4 @@ import com.lasoloz.tools.qpt.gui.util.AbstractGuiComponent
 /**
  * Search result component for showing search result of configuration lookups
  */
-class SearchResultsComponent : AbstractGuiComponent(LauncherConstants.SEARCH_RESULT_RESOURCE_PATH)
+class SearchResultsComponent : AbstractGuiComponent(LauncherConstants.Paths.SEARCH_RESULT_RESOURCE_PATH)
