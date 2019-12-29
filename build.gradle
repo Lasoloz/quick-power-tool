@@ -11,6 +11,7 @@ ext {
     slf4jJdk14Version = "1.7.13"
     rxJavaVersion = "2.2.15"
     guiceVersion = "4.2.2"
+    jacksonVersion = "2.10.1"
 
     // Tests
     jupiterVersion = "5.3.1"

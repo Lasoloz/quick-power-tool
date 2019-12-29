@@ -1,34 +1,40 @@
 package com.lasoloz.tools.qpt.gui.testing
 
 import com.google.inject.AbstractModule
-import com.google.inject.Key
 import com.google.inject.name.Names
+import com.google.inject.util.Modules
+import com.lasoloz.tools.qpt.actions.injection.ActionsModule
+import com.lasoloz.tools.qpt.actions.loader.ActionConfigLoader
+import com.lasoloz.tools.qpt.actions.util.ActionLoadException
 import com.lasoloz.tools.qpt.coreutils.injection.CoreUtilsModule
-import com.lasoloz.tools.qpt.coreutils.platform.ConfigFileResolver
 import com.lasoloz.tools.qpt.coreutils.util.CoreConstants
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 
 fun main() {
     with(InjectorUtil) {
-        registerModule(object : AbstractModule() {
+        // TODO: continue by implementing action types as jackson subtyping should work with (setDefaultTyping)
+        //       basic command runner action should be implemented in the same module (for starting point)
+
+        val coreUtilsModule = Modules.override(CoreUtilsModule()).with(object : AbstractModule() {
             override fun configure() {
                 bind(String::class.java)
                     .annotatedWith(Names.named(CoreConstants.Injection.RELATIVE_CONFIG_DIRECTORY_NAME_KEY))
-                    .toInstance(".can-i-change-this")
+                    .toInstance(".quick-power-tool") // Actually this is the default
             }
         })
-        registerModule(CoreUtilsModule())
+        registerModule(coreUtilsModule)
+        registerModule(ActionsModule())
         registerModule(GuiModule())
 
-        getInjector().getInstance(
-            Key.get(
-                ConfigFileResolver::class.java,
-                Names.named(CoreConstants.Injection.CONFIG_FILE_RESOLVER_NAME_KEY)
-            )
-        ).resolve("someConfig.json").let {
-            println(it.absolutePath)
-            println(it.path)
+        try {
+            getInjector().getInstance(ActionConfigLoader::class.java).loadActionConfigs().let {
+                println(it)
+            }
+        } catch (ex: ActionLoadException) {
+            println("Action load exception: ${ex.message}")
+        } catch (ex: Exception) { // Catch MismatchedInputException
+            println("Other eventual exception: ${ex.message}")
         }
     }
 //    thread {

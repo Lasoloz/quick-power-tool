@@ -16,6 +16,10 @@ dependencies {
     // DI
     implementation "com.google.inject:guice:$guiceVersion"
 
+    // JSON
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }

@@ -1,9 +1,7 @@
 rootProject.name = 'quick-power-tool'
-include 'qpt-key-listener'
-include 'qpt-actions'
-include 'qpt-application'
-include 'qpt-basic-action-types'
-include 'qpt-gui'
 include 'qpt-injections'
 include 'qpt-core-utils'
-
+include 'qpt-actions'
+include 'qpt-gui'
+include 'qpt-key-listener'
+include 'qpt-application'
