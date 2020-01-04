@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule
 import com.google.inject.Provides
 import com.google.inject.Scopes
 import com.google.inject.multibindings.MapBinder
-import com.lasoloz.tools.qpt.actions.injection.ActionsModule
 import com.lasoloz.tools.qpt.coreutils.resource.ResourceBundleUtil
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants
 import com.lasoloz.tools.qpt.gui.launcher.LauncherStageProxy
@@ -24,7 +23,6 @@ class GuiModule : AbstractModule() {
         bindStageProxies()
         bind(StageConfig::class.java).`in`(Scopes.SINGLETON)
         bind(LauncherState::class.java).`in`(Scopes.SINGLETON)
-        binder().install(ActionsModule())
     }
 
     private fun bindStageProxies() {
