@@ -1,11 +1,13 @@
-package com.lasoloz.tools.qpt.actions.config.dto
+package com.lasoloz.tools.qpt.actions.config.model
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver
 import com.lasoloz.tools.qpt.actions.config.json.ActionConfigTypeIdResolver
 
 /**
- * Abstract configuration DTO used for unmarshalling
+ * Abstract configuration model used for unmarshalling
+ *
+ * @param actionNameInfo Action name information
  */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.CUSTOM,
@@ -13,4 +15,4 @@ import com.lasoloz.tools.qpt.actions.config.json.ActionConfigTypeIdResolver
     property = "@type"
 )
 @JsonTypeIdResolver(ActionConfigTypeIdResolver::class)
-abstract class AbstractActionConfigDTO(val actionNameInfo: ActionNameInfoDTO)
+abstract class AbstractActionConfigModel(val actionNameInfo: ActionNameInfoModel)

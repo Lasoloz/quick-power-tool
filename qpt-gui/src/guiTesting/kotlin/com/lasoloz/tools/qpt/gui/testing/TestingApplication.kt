@@ -8,7 +8,6 @@ import com.lasoloz.tools.qpt.actions.loader.ActionConfigLoader
 import com.lasoloz.tools.qpt.actions.util.ActionLoadException
 import com.lasoloz.tools.qpt.coreutils.injection.CoreUtilsModule
 import com.lasoloz.tools.qpt.coreutils.util.CoreConstants
-import com.lasoloz.tools.qpt.coreutils.util.SetupRunner
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 
@@ -27,8 +26,6 @@ fun main() {
         registerModule(coreUtilsModule)
         registerModule(ActionsModule())
         registerModule(GuiModule())
-
-        getInjector().getInstance(SetupRunner::class.java).setupModules()
 
         try {
             getInjector().getInstance(ActionConfigLoader::class.java).loadActionConfigs().let { list ->

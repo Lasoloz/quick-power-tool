@@ -14,10 +14,20 @@ object ActionConstants {
         const val ACTION_CONFIG_LOADER_NAME_KEY = "ActionConfigLoader"
 
         /**
-         * Injection name for map of action configuration dto mappers
+         * Injection name for map of action configuration models to their mappers
          */
-        const val ACTION_CONFIG_DTO_MAPPER_MAP_NAME_KEY = "ActionConfigMappers"
+        const val ACTION_CONFIG_MODEL_TO_MAPPER_NAME_KEY = "ActionConfigModelsToMappers"
+
+        /**
+         * Injection name for map of type ids to their models
+         */
+        const val ACTION_CONFIG_TYPE_ID_TO_MODEL_NAME_KEY = "ActionConfigTypeIdsToModels"
     }
+
+    /**
+     * Command action configuration type id for jackson databind
+     */
+    const val COMMAND_ACTION_CONFIG_TYPE_ID = "command"
 
     /**
      * Default configuration file path relative to the application configuration

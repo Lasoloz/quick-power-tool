@@ -12,6 +12,7 @@ repositories {
 dependencies {
     // Module
     implementation project(":qpt-core-utils")
+    implementation project(":qpt-injections")
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"

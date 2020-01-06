@@ -1,17 +1,17 @@
 package com.lasoloz.tools.qpt.actions.config.mapper
 
 import com.lasoloz.tools.qpt.actions.ActionConfig
-import com.lasoloz.tools.qpt.actions.config.dto.AbstractActionConfigDTO
+import com.lasoloz.tools.qpt.actions.config.model.AbstractActionConfigModel
 
 /**
- * Action configuration DTO mapper
+ * Action configuration model mapper
  */
 interface ActionConfigMapper {
     /**
      * Mapping method
      *
-     * @param dto Action configuration DTO
+     * @param model Action configuration model
      * @return Mapped action configuration
      */
-    fun mapToAction(dto: AbstractActionConfigDTO): ActionConfig
+    fun mapToAction(model: AbstractActionConfigModel): ActionConfig
 }
