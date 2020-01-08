@@ -8,14 +8,17 @@ import com.lasoloz.tools.qpt.actions.loader.ActionConfigLoader
 import com.lasoloz.tools.qpt.actions.util.ActionLoadException
 import com.lasoloz.tools.qpt.coreutils.injection.CoreUtilsModule
 import com.lasoloz.tools.qpt.coreutils.util.CoreConstants
+import com.lasoloz.tools.qpt.gui.QptGui
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
+import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Injection.LAUNCHER_NAME_KEY
+import com.lasoloz.tools.qpt.gui.stage.StageConfig
 import com.lasoloz.tools.qpt.injections.InjectorUtil
+import javafx.application.Application
+import javafx.application.Platform
+import kotlin.concurrent.thread
 
 fun main() {
     with(InjectorUtil) {
-        // TODO: continue by implementing action types as jackson subtyping should work with (setDefaultTyping)
-        //       basic command runner action should be implemented in the same module (for starting point)
-
         val coreUtilsModule = Modules.override(CoreUtilsModule()).with(object : AbstractModule() {
             override fun configure() {
                 bind(String::class.java)
@@ -39,18 +42,18 @@ fun main() {
             println("Other eventual exception: ${ex.message}")
         }
     }
-//    thread {
-//        Platform.setImplicitExit(false)
-//        Application.launch(QptGui::class.java)
-//    }.let {
-//        println("WORKS!")
-//        Thread.sleep(500)
-//        Platform.runLater {
-//            InjectorUtil.getInjector().getInstance(StageConfig::class.java).stageProxyMap[LAUNCHER_NAME_KEY]?.showStage()
-//        }
-//        Thread.sleep(2000)
-//        println("Implicit exit -> true")
-//        Platform.setImplicitExit(true)
-//        it.join()
-//    }
+    thread {
+        Platform.setImplicitExit(false)
+        Application.launch(QptGui::class.java)
+    }.let {
+        println("WORKS!")
+        Thread.sleep(500)
+        Platform.runLater {
+            InjectorUtil.getInjector().getInstance(StageConfig::class.java).stageProxyMap[LAUNCHER_NAME_KEY]?.showStage()
+        }
+        Thread.sleep(2000)
+        println("Implicit exit -> true")
+        Platform.setImplicitExit(true)
+        it.join()
+    }
 }

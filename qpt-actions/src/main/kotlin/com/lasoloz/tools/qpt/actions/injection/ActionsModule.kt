@@ -9,6 +9,7 @@ import com.lasoloz.tools.qpt.actions.basic.CommandActionMapper
 import com.lasoloz.tools.qpt.actions.basic.CommandActionModel
 import com.lasoloz.tools.qpt.actions.config.mapper.ActionConfigMapper
 import com.lasoloz.tools.qpt.actions.config.model.AbstractActionConfigModel
+import com.lasoloz.tools.qpt.actions.loader.ActionConfigList
 import com.lasoloz.tools.qpt.actions.loader.ActionConfigLoader
 import com.lasoloz.tools.qpt.actions.util.ActionConstants
 import kotlin.reflect.KClass
@@ -21,6 +22,10 @@ class ActionsModule : AbstractModule() {
         bind(ActionConfigLoader::class.java)
             .annotatedWith(Names.named(ActionConstants.Injection.ACTION_CONFIG_LOADER_NAME_KEY))
             .to(ActionConfigLoader::class.java)
+            .`in`(Scopes.SINGLETON)
+        bind(ActionConfigList::class.java)
+            .annotatedWith(Names.named(ActionConstants.Injection.ACTION_CONFIG_LIST_NAME_KEY))
+            .to(ActionConfigList::class.java)
             .`in`(Scopes.SINGLETON)
 
         bindModelsToMappers()
