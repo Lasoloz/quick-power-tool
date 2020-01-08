@@ -1,9 +1,12 @@
 package com.lasoloz.tools.qpt.gui.launcher.component
 
 import com.google.inject.Inject
+import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.gui.core.PersistentPromptTextField
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LauncherState
+import com.lasoloz.tools.qpt.gui.util.FilteredActionConfigs
+import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.FILTERED_ACTION_CONFIGS_NAME_KEY
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
@@ -17,6 +20,7 @@ import java.util.*
  */
 class LaunchBarController : Initializable {
     private lateinit var launcherState: LauncherState
+    private lateinit var filteredActionConfigs: FilteredActionConfigs
 
     @FXML
     private lateinit var textField: PersistentPromptTextField
@@ -27,13 +31,20 @@ class LaunchBarController : Initializable {
      * @param launcherState Launcher state
      */
     @Inject
-    fun setLauncherState(launcherState: LauncherState) {
+    fun injectLauncherState(launcherState: LauncherState) {
         this.launcherState = launcherState
+    }
+
+    @Inject
+    fun injectFilteredActionConfigs(
+        @Named(FILTERED_ACTION_CONFIGS_NAME_KEY) filteredActionConfigs: FilteredActionConfigs
+    ) {
+        this.filteredActionConfigs = filteredActionConfigs
     }
 
     @FXML
     private fun keyOnReleaseAction(e: KeyEvent) {
-        println("TODO: Look up text value ${textField.text}")
+        filteredActionConfigs.nextFilter(textField.text)
     }
 
     @FXML

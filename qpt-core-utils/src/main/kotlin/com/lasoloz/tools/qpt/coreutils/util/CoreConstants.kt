@@ -9,6 +9,11 @@ object CoreConstants {
      */
     object Injection {
         /**
+         * Injection name for setup unit set
+         */
+        const val SETUP_UNIT_NAME_KEY = "SetupUnits"
+
+        /**
          * Injection name for [com.lasoloz.tools.qpt.coreutils.platform.ConfigFileResolver]
          */
         const val CONFIG_FILE_RESOLVER_NAME_KEY = "ConfigFileResolver"

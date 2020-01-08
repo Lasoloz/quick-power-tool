@@ -12,6 +12,11 @@ object GuiConstants {
          * Resource bundle key for the gui module
          */
         const val GUI_RESOURCE_NAME_KEY = "GuiResourceBundle"
+
+        /**
+         * Injection name for filtered action configurations observable
+         */
+        const val FILTERED_ACTION_CONFIGS_NAME_KEY = "FilteredActionConfigs"
     }
 
     /**
