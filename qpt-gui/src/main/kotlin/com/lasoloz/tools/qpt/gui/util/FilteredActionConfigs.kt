@@ -16,7 +16,7 @@ import io.reactivex.subjects.Subject
  * @param actionConfigs Unfiltered action configurations
  */
 class FilteredActionConfigs @Inject constructor(
-    @Named(ACTION_CONFIG_LIST_NAME_KEY) private val actionConfigs: ActionConfigList
+    @Named(ACTION_CONFIG_LIST_NAME_KEY) actionConfigs: ActionConfigList
 ) {
     inner class ActionConfigListOnFilter internal constructor(
         val actionConfig: Iterable<ActionConfig>,
@@ -29,7 +29,8 @@ class FilteredActionConfigs @Inject constructor(
     private var lastFilter = ""
 
     private val filterStringSubject: Subject<String> = PublishSubject.create()
-    private val filteredActionConfigsObservable = actionConfigs.observeActionConfigs().zipActionsFiltering()
+    private val distinctFilterStringObservable = filterStringSubject.filter(this::latestDistinctStateFilter)
+    private val filteredActionConfigsObservable = combineActionConfigsWithFiltering(actionConfigs)
 
     /**
      * Set next filter string
@@ -47,16 +48,24 @@ class FilteredActionConfigs @Inject constructor(
      */
     fun observeFilteredActionConfigs(): Observable<ActionConfigListOnFilter> = filteredActionConfigsObservable
 
-    private fun Observable<Iterable<ActionConfig>>.zipActionsFiltering(): Observable<ActionConfigListOnFilter> {
-        return zipWith(filterStringSubject.filter { it != lastFilter },
-            BiFunction { actionConfigs: Iterable<ActionConfig>, filter: String ->
-                // TODO: Implement a more versatile filtering!
-                actionConfigs.filter {
+    private fun combineActionConfigsWithFiltering(actionConfigs: ActionConfigList): Observable<ActionConfigListOnFilter> {
+        return Observable.combineLatest(
+            actionConfigs.observeActionConfigs(),
+            distinctFilterStringObservable,
+            BiFunction { configs: Iterable<ActionConfig>, filter: String ->
+                configs.filter {
                     it.getNameInfo().name.contains(filter)
                 }.to(filter)
-            })
+            }
+        )
     }
 
     private fun Iterable<ActionConfig>.to(filter: String): ActionConfigListOnFilter =
         ActionConfigListOnFilter(this, filter)
+
+    private fun latestDistinctStateFilter(filter: String): Boolean {
+        val ret = filter != lastFilter
+        lastFilter = filter
+        return ret
+    }
 }

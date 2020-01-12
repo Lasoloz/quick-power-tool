@@ -22,7 +22,11 @@ class ActionConfigList @Inject constructor(
      * Call action config loader and notify subscribers with the new configuration list
      */
     fun reloadActionConfigs() {
-        actionConfigs.onNext(actionConfigLoader.loadActionConfigs())
+        actionConfigLoader.loadActionConfigs().let {
+            // TODO: Replace with logger
+            println("Loaded action configs: ${it.size}")
+            actionConfigs.onNext(it)
+        }
     }
 
     /**
