@@ -15,7 +15,6 @@ import com.lasoloz.tools.qpt.gui.QptGui
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Injection.LAUNCHER_NAME_KEY
 import com.lasoloz.tools.qpt.gui.stage.StageConfig
-import com.lasoloz.tools.qpt.gui.util.FilteredActionConfigs
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.application.Application
 import javafx.application.Platform

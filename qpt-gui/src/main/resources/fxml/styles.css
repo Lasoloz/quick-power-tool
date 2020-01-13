@@ -19,18 +19,29 @@
     -fx-background-color: transparent;
 }
 
-
-/* Result separator*/
-.result-separator {
+/* Result entry */
+.result-entry {
     -fx-border-width: 0 0 1px 0;
     -fx-border-color: #58535d;
 }
 
+/* Result separator*/
 .result-separator > .label {
     -fx-font-size: 10pt;
     -fx-text-fill: #aaaaaa;
     -fx-background-color: transparent;
     -fx-font-weight: lighter;
+}
+
+/* Result action config component */
+.result-action-config > .label {
+    -fx-text-fill: #efefef;
+    -fx-font-size: 8pt;
+    -fx-pref-height: 45pt;
+}
+
+.result-action-config-selected {
+    -fx-background-color: #534f58;
 }
 
 /* Pane overrides*/

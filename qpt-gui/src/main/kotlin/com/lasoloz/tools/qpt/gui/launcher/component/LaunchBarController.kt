@@ -5,8 +5,8 @@ import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.gui.core.PersistentPromptTextField
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LauncherState
-import com.lasoloz.tools.qpt.gui.util.FilteredActionConfigs
-import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.FILTERED_ACTION_CONFIGS_NAME_KEY
+import com.lasoloz.tools.qpt.gui.util.GuiObservables
+import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
@@ -20,7 +20,7 @@ import java.util.*
  */
 class LaunchBarController : Initializable {
     private lateinit var launcherState: LauncherState
-    private lateinit var filteredActionConfigs: FilteredActionConfigs
+    private lateinit var filteredActionConfigs: GuiObservables
 
     @FXML
     private lateinit var textField: PersistentPromptTextField
@@ -37,14 +37,14 @@ class LaunchBarController : Initializable {
 
     @Inject
     fun injectFilteredActionConfigs(
-        @Named(FILTERED_ACTION_CONFIGS_NAME_KEY) filteredActionConfigs: FilteredActionConfigs
+        @Named(GUI_OBSERVABLES_NAME_KEY) filteredActionConfigs: GuiObservables
     ) {
         this.filteredActionConfigs = filteredActionConfigs
     }
 
     @FXML
     private fun keyOnReleaseAction(e: KeyEvent) {
-        filteredActionConfigs.nextFilter(textField.text)
+        filteredActionConfigs.nextTextFilter(textField.text)
     }
 
     @FXML

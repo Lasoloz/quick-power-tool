@@ -16,7 +16,22 @@ object GuiConstants {
         /**
          * Injection name for filtered action configurations observable
          */
-        const val FILTERED_ACTION_CONFIGS_NAME_KEY = "FilteredActionConfigs"
+        const val GUI_OBSERVABLES_NAME_KEY = "FilteredActionConfigs"
+
+        /**
+         * Injection name for action config categorizer set
+         */
+        const val ACTION_CATEGORIZERS_NAME_KEY = "ActionCategorizers"
+
+        /**
+         * Injection name for categorized action notifier
+         */
+        const val CATEGORIZED_ACTIONS_NOTIFIER_NAME_KEY = "CategorizedActionNotifier"
+
+        /**
+         * Injection name for categorized action configurations
+         */
+        const val CATEGORIZED_ACTION_CONFIGS_NAME_KEY = "CategorizedActionConfigs"
     }
 
     /**

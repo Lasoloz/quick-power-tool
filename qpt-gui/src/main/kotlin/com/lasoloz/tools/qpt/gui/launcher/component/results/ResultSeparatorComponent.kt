@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox
 class ResultSeparatorComponent(@NamedArg("message") private val message: String) : HBox(), ResultEntry {
     init {
         prefWidth = 578.0
-        styleClass.addAll("base-transparent", "result-separator")
+        styleClass.addAll("base-transparent", "result-entry", "result-separator")
         children.add(Label(message).also {
             prefWidth = 578.0
         })
