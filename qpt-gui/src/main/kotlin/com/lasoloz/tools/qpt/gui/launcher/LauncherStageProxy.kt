@@ -11,6 +11,8 @@ import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LauncherState
 import com.lasoloz.tools.qpt.gui.util.GuiConstants
 import com.lasoloz.tools.qpt.gui.util.GuiConstants.DEFAULT_STYLESHEET_PATH
+import com.lasoloz.tools.qpt.gui.util.GuiObservables
+import javafx.application.Platform
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
@@ -28,6 +30,7 @@ import java.util.*
 class LauncherStageProxy
 @Inject constructor(
     @Named(GuiConstants.Injection.GUI_RESOURCE_NAME_KEY) private val resourceBundle: ResourceBundle,
+    @Named(GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY) private val guiObservables: GuiObservables,
     private val launcherState: LauncherState
 ) : StageProxy {
     private lateinit var launcher: Stage
@@ -42,10 +45,13 @@ class LauncherStageProxy
         }
 
         launcherState.getShownState().subscribe {
-            if (it == StageShownState.SHOWN) {
-                launcher.show()
-            } else {
-                launcher.hide()
+            Platform.runLater {
+                if (it == StageShownState.SHOWN) {
+                    launcher.show()
+                    guiObservables.notifyCategoryChange() // Refresh filtering
+                } else {
+                    launcher.hide()
+                }
             }
         }
     }

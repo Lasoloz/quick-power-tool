@@ -12,11 +12,17 @@ repositories {
 
 dependencies {
     // Modules
+    implementation project(":qpt-injections")
+    implementation project(":qpt-core-utils")
     implementation project(":qpt-key-listener")
     implementation project(":qpt-actions")
+    implementation project(":qpt-gui")
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // DI
+    implementation "com.google.inject:guice:$guiceVersion"
 
     // Tests
     testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"

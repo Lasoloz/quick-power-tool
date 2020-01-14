@@ -12,20 +12,20 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 class SimpleKeyListenerDaemon : KeyListenerDaemon {
     private lateinit var keyStrokeActionsMap: KeyStrokeActionsMap
+    private lateinit var thread: Thread
     private val running = AtomicBoolean(false)
 
     override fun run(keyStrokeActionsMap: KeyStrokeActionsMap) {
         this.keyStrokeActionsMap = keyStrokeActionsMap
         this.running.set(true)
-        Thread(this::daemonMethod).also {
+        this.thread = Thread(this::daemonMethod).also {
             it.start()
-        }.also {
-            it.join()
         }
     }
 
     override fun stop() {
-        this.running.set(false)
+        running.set(false)
+        thread.join()
     }
 
     private fun daemonMethod() {

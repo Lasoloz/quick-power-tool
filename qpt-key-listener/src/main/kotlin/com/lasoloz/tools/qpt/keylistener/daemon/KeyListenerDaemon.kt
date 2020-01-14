@@ -14,7 +14,7 @@ interface KeyListenerDaemon {
     fun run(keyStrokeActionsMap: KeyStrokeActionsMap)
 
     /**
-     * Try stopping the thread as soon as possible (this must be called from a different thread or from a signal hook)
+     * Wait for and stop the daemon and free up resources
      */
     fun stop()
 }
