@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.gui.core.PersistentPromptTextField
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
+import com.lasoloz.tools.qpt.gui.state.LaunchBarEvent
 import com.lasoloz.tools.qpt.gui.state.LauncherState
 import com.lasoloz.tools.qpt.gui.util.GuiObservables
 import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
@@ -20,7 +21,7 @@ import java.util.*
  */
 class LaunchBarController : Initializable {
     private lateinit var launcherState: LauncherState
-    private lateinit var filteredActionConfigs: GuiObservables
+    private lateinit var guiObservables: GuiObservables
 
     @FXML
     private lateinit var textField: PersistentPromptTextField
@@ -37,14 +38,14 @@ class LaunchBarController : Initializable {
 
     @Inject
     fun injectFilteredActionConfigs(
-        @Named(GUI_OBSERVABLES_NAME_KEY) filteredActionConfigs: GuiObservables
+        @Named(GUI_OBSERVABLES_NAME_KEY) guiObservables: GuiObservables
     ) {
-        this.filteredActionConfigs = filteredActionConfigs
+        this.guiObservables = guiObservables
     }
 
     @FXML
     private fun keyOnReleaseAction(e: KeyEvent) {
-        filteredActionConfigs.nextTextFilter(textField.text)
+        guiObservables.nextTextFilter(textField.text)
     }
 
     @FXML
@@ -59,16 +60,26 @@ class LaunchBarController : Initializable {
 
     private fun addUpDownFilter() {
         textField.addEventFilter(KeyEvent.ANY) { event ->
-            if (event.code == KeyCode.UP) {
-                event.doOnRelease {
-                    println("TODO: Select previous")
+            when (event.code) {
+                KeyCode.UP -> {
+                    event.doOnRelease {
+                        guiObservables.nextLaunchBarEvent(LaunchBarEvent.PREVIOUS)
+                    }
+                    event.consume()
                 }
-                event.consume()
-            } else if (event.code == KeyCode.DOWN) {
-                event.doOnRelease {
-                    println("TODO: Select next")
+                KeyCode.DOWN -> {
+                    event.doOnRelease {
+                        guiObservables.nextLaunchBarEvent(LaunchBarEvent.NEXT)
+                    }
+                    event.consume()
                 }
-                event.consume()
+                KeyCode.ENTER -> {
+                    event.doOnRelease {
+                        guiObservables.nextLaunchBarEvent(LaunchBarEvent.SELECT)
+                    }
+                    event.consume()
+                }
+                else -> {}
             }
         }
     }

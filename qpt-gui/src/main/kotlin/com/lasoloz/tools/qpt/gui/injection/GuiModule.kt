@@ -3,14 +3,13 @@ package com.lasoloz.tools.qpt.gui.injection
 import com.google.inject.AbstractModule
 import com.google.inject.Provides
 import com.google.inject.Scopes
-import com.google.inject.TypeLiteral
 import com.google.inject.multibindings.MapBinder
 import com.google.inject.multibindings.Multibinder
 import com.google.inject.name.Names
 import com.lasoloz.tools.qpt.coreutils.resource.ResourceBundleUtil
 import com.lasoloz.tools.qpt.gui.category.ActionCategorizer
-import com.lasoloz.tools.qpt.gui.category.basic.AllActionsCategorizer
 import com.lasoloz.tools.qpt.gui.category.CategorizedActionConfigs
+import com.lasoloz.tools.qpt.gui.category.basic.AllActionsCategorizer
 import com.lasoloz.tools.qpt.gui.category.basic.MatchingActionsCategorizer
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants
 import com.lasoloz.tools.qpt.gui.launcher.LauncherStageProxy
@@ -20,8 +19,6 @@ import com.lasoloz.tools.qpt.gui.state.LauncherState
 import com.lasoloz.tools.qpt.gui.util.GuiConstants
 import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.ACTION_CATEGORIZERS_NAME_KEY
 import com.lasoloz.tools.qpt.gui.util.GuiObservables
-import io.reactivex.subjects.PublishSubject
-import io.reactivex.subjects.Subject
 import java.util.*
 import javax.inject.Named
 
@@ -36,9 +33,6 @@ class GuiModule : AbstractModule() {
         bind(StageConfig::class.java).`in`(Scopes.SINGLETON)
         bind(LauncherState::class.java).`in`(Scopes.SINGLETON)
 
-        bind(object : TypeLiteral<Subject<Boolean>>() {})
-            .annotatedWith(Names.named(GuiConstants.Injection.CATEGORIZED_ACTIONS_NOTIFIER_NAME_KEY))
-            .toInstance(PublishSubject.create())
         bind(GuiObservables::class.java)
             .annotatedWith(Names.named(GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY))
             .to(GuiObservables::class.java)

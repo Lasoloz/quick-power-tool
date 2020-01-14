@@ -5,11 +5,6 @@ package com.lasoloz.tools.qpt.gui.launcher.component.results
  */
 interface ResultEntry {
     /**
-     * Check if entry is selectable on list
-     */
-    val isSelectable: Boolean
-
-    /**
      * Perform action upon selection
      */
     fun performAction()

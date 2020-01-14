@@ -15,6 +15,8 @@ import com.lasoloz.tools.qpt.gui.QptGui
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Injection.LAUNCHER_NAME_KEY
 import com.lasoloz.tools.qpt.gui.stage.StageConfig
+import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
+import com.lasoloz.tools.qpt.gui.util.GuiObservables
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.application.Application
 import javafx.application.Platform
@@ -61,6 +63,9 @@ fun main() {
         InjectorUtil.getInjector()
             .getInstance(Key.get(ActionConfigList::class.java, Names.named(ACTION_CONFIG_LIST_NAME_KEY)))
             .reloadActionConfigs()
+        InjectorUtil.getInjector()
+            .getInstance(Key.get(GuiObservables::class.java, Names.named(GUI_OBSERVABLES_NAME_KEY)))
+            .notifyCategoryChange()
         println("Implicit exit -> true")
         Platform.setImplicitExit(true)
         it.join()

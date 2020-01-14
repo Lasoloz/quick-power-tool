@@ -6,6 +6,8 @@ import javafx.scene.layout.HBox
 
 /**
  * Result separator component for separating different results
+ *
+ * @param message Label text of the result separator component
  */
 class ResultSeparatorComponent(@NamedArg("message") private val message: String) : HBox(), ResultEntry {
     init {
@@ -15,9 +17,6 @@ class ResultSeparatorComponent(@NamedArg("message") private val message: String)
             prefWidth = 578.0
         })
     }
-
-    override val isSelectable: Boolean
-        get() = false
 
     override fun performAction() {}
 }
