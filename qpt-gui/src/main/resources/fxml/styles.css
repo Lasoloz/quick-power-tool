@@ -30,7 +30,7 @@
     -fx-font-size: 10pt;
     -fx-text-fill: #aaaaaa;
     -fx-background-color: transparent;
-    -fx-font-weight: lighter;
+    -fx-font-weight: bold;
 }
 
 /* Result action config component */

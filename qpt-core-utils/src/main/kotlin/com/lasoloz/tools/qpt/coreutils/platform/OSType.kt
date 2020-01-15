@@ -14,6 +14,9 @@ enum class OSType {
      */
     WINDOWS;
 
+    /**
+     * Companion object for static utilities
+     */
     companion object {
         /**
          * Get operating system type by checking `os.name` system property
