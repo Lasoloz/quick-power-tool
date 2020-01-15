@@ -1,0 +1,14 @@
+<?import com.lasoloz.tools.qpt.gui.launcher.component.LaunchBarComponent?>
+<?import com.lasoloz.tools.qpt.gui.launcher.component.SearchResultsComponent?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane styleClass="base-color">
+    <top>
+        <LaunchBarComponent styleClass="base-color"/>
+    </top>
+    <center>
+        <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS" styleClass="base-transparent">
+            <SearchResultsComponent styleClass="base-transparent"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

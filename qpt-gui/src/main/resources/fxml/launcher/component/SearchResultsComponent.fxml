@@ -1,0 +1,5 @@
+<?import javafx.scene.layout.VBox?>
+<VBox styleClass="base-transparent"
+      fx:controller="com.lasoloz.tools.qpt.gui.launcher.component.SearchResultsController"
+      fx:id="rootVBox"
+      xmlns:fx="http://javafx.com/fxml"/>

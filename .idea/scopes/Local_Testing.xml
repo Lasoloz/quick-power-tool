@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Local Testing" pattern="src[**.guiTesting]:*..*" />
+</component>
