@@ -19,14 +19,8 @@ import kotlin.reflect.KClass
  */
 class ActionsModule : AbstractModule() {
     override fun configure() {
-        bind(ActionConfigLoader::class.java)
-            .annotatedWith(Names.named(ActionConstants.Injection.ACTION_CONFIG_LOADER_NAME_KEY))
-            .to(ActionConfigLoader::class.java)
-            .`in`(Scopes.SINGLETON)
-        bind(ActionConfigList::class.java)
-            .annotatedWith(Names.named(ActionConstants.Injection.ACTION_CONFIG_LIST_NAME_KEY))
-            .to(ActionConfigList::class.java)
-            .`in`(Scopes.SINGLETON)
+        bind(ActionConfigLoader::class.java).`in`(Scopes.SINGLETON)
+        bind(ActionConfigList::class.java).`in`(Scopes.SINGLETON)
 
         bindModelsToMappers()
         bindTypeIdsToModels()

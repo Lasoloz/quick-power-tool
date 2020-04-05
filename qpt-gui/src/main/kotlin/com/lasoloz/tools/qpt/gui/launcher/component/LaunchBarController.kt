@@ -1,13 +1,11 @@
 package com.lasoloz.tools.qpt.gui.launcher.component
 
 import com.google.inject.Inject
-import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.gui.core.PersistentPromptTextField
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LaunchBarEvent
 import com.lasoloz.tools.qpt.gui.state.LauncherState
 import com.lasoloz.tools.qpt.gui.util.GuiObservables
-import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
@@ -37,9 +35,7 @@ class LaunchBarController : Initializable {
     }
 
     @Inject
-    fun injectFilteredActionConfigs(
-        @Named(GUI_OBSERVABLES_NAME_KEY) guiObservables: GuiObservables
-    ) {
+    fun injectFilteredActionConfigs(guiObservables: GuiObservables) {
         this.guiObservables = guiObservables
     }
 
@@ -79,7 +75,8 @@ class LaunchBarController : Initializable {
                     }
                     event.consume()
                 }
-                else -> {}
+                else -> {
+                }
             }
         }
     }

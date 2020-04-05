@@ -30,7 +30,7 @@ import java.util.*
 class LauncherStageProxy
 @Inject constructor(
     @Named(GuiConstants.Injection.GUI_RESOURCE_NAME_KEY) private val resourceBundle: ResourceBundle,
-    @Named(GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY) private val guiObservables: GuiObservables,
+    private val guiObservables: GuiObservables,
     private val launcherState: LauncherState
 ) : StageProxy {
     private lateinit var launcher: Stage

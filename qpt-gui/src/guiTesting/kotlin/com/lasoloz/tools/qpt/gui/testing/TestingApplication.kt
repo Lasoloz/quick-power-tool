@@ -1,13 +1,11 @@
 package com.lasoloz.tools.qpt.gui.testing
 
 import com.google.inject.AbstractModule
-import com.google.inject.Key
 import com.google.inject.name.Names
 import com.google.inject.util.Modules
 import com.lasoloz.tools.qpt.actions.injection.ActionsModule
 import com.lasoloz.tools.qpt.actions.loader.ActionConfigList
 import com.lasoloz.tools.qpt.actions.loader.ActionConfigLoader
-import com.lasoloz.tools.qpt.actions.util.ActionConstants.Injection.ACTION_CONFIG_LIST_NAME_KEY
 import com.lasoloz.tools.qpt.actions.util.ActionLoadException
 import com.lasoloz.tools.qpt.coreutils.injection.CoreUtilsModule
 import com.lasoloz.tools.qpt.coreutils.util.CoreConstants
@@ -15,7 +13,6 @@ import com.lasoloz.tools.qpt.gui.QptGui
 import com.lasoloz.tools.qpt.gui.injection.GuiModule
 import com.lasoloz.tools.qpt.gui.launcher.LauncherConstants.Injection.LAUNCHER_NAME_KEY
 import com.lasoloz.tools.qpt.gui.stage.StageConfig
-import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
 import com.lasoloz.tools.qpt.gui.util.GuiObservables
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.application.Application
@@ -61,10 +58,10 @@ fun main() {
         }
         Thread.sleep(2000)
         InjectorUtil.getInjector()
-            .getInstance(Key.get(ActionConfigList::class.java, Names.named(ACTION_CONFIG_LIST_NAME_KEY)))
+            .getInstance(ActionConfigList::class.java)
             .reloadActionConfigs()
         InjectorUtil.getInjector()
-            .getInstance(Key.get(GuiObservables::class.java, Names.named(GUI_OBSERVABLES_NAME_KEY)))
+            .getInstance(GuiObservables::class.java)
             .notifyCategoryChange()
         println("Implicit exit -> true")
         Platform.setImplicitExit(true)

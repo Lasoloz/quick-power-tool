@@ -1,9 +1,7 @@
 package com.lasoloz.tools.qpt.actions.loader
 
 import com.google.inject.Inject
-import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.actions.ActionConfig
-import com.lasoloz.tools.qpt.actions.util.ActionConstants.Injection.ACTION_CONFIG_LOADER_NAME_KEY
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject
@@ -13,9 +11,7 @@ import io.reactivex.subjects.Subject
  *
  * @param actionConfigLoader Action configuration loader
  */
-class ActionConfigList @Inject constructor(
-    @Named(ACTION_CONFIG_LOADER_NAME_KEY) private val actionConfigLoader: ActionConfigLoader
-) {
+class ActionConfigList @Inject constructor(private val actionConfigLoader: ActionConfigLoader) {
     private val actionConfigs: Subject<Iterable<ActionConfig>> = BehaviorSubject.createDefault(listOf())
 
     /**

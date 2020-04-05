@@ -28,22 +28,14 @@ import javax.inject.Named
 @Suppress("unused")
 class GuiModule : AbstractModule() {
     override fun configure() {
-        // TODO: Check if named bindings if a good idea for these:
         bindStageProxies()
         bind(StageConfig::class.java).`in`(Scopes.SINGLETON)
         bind(LauncherState::class.java).`in`(Scopes.SINGLETON)
-
-        bind(GuiObservables::class.java)
-            .annotatedWith(Names.named(GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY))
-            .to(GuiObservables::class.java)
-            .`in`(Scopes.SINGLETON)
+        bind(GuiObservables::class.java).`in`(Scopes.SINGLETON)
 
         bindActionCategorizersToSet()
 
-        bind(CategorizedActionConfigs::class.java)
-            .annotatedWith(Names.named(GuiConstants.Injection.CATEGORIZED_ACTION_CONFIGS_NAME_KEY))
-            .to(CategorizedActionConfigs::class.java)
-            .`in`(Scopes.SINGLETON)
+        bind(CategorizedActionConfigs::class.java).`in`(Scopes.SINGLETON)
     }
 
     private fun bindStageProxies() {

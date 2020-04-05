@@ -1,7 +1,6 @@
 package com.lasoloz.tools.qpt.gui.launcher.component
 
 import com.google.inject.Inject
-import com.google.inject.name.Named
 import com.lasoloz.tools.qpt.actions.ActionConfig
 import com.lasoloz.tools.qpt.gui.category.ActionCategory
 import com.lasoloz.tools.qpt.gui.category.CategorizedActionConfigs
@@ -10,8 +9,6 @@ import com.lasoloz.tools.qpt.gui.launcher.component.results.ResultSeparatorCompo
 import com.lasoloz.tools.qpt.gui.stage.StageShownState
 import com.lasoloz.tools.qpt.gui.state.LaunchBarEvent
 import com.lasoloz.tools.qpt.gui.state.LauncherState
-import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.CATEGORIZED_ACTION_CONFIGS_NAME_KEY
-import com.lasoloz.tools.qpt.gui.util.GuiConstants.Injection.GUI_OBSERVABLES_NAME_KEY
 import com.lasoloz.tools.qpt.gui.util.GuiObservables
 import com.lasoloz.tools.qpt.injections.InjectorUtil
 import javafx.application.Platform
@@ -41,9 +38,7 @@ class SearchResultsController : Initializable {
      * @param categorizedActionConfigs Action configurations categorized
      */
     @Inject
-    fun injectCategorizedActionConfigs(
-        @Named(CATEGORIZED_ACTION_CONFIGS_NAME_KEY) categorizedActionConfigs: CategorizedActionConfigs
-    ) {
+    fun injectCategorizedActionConfigs(categorizedActionConfigs: CategorizedActionConfigs) {
         categorizedActionConfigs.observeCategorizedActions().subscribe { actionCategories ->
             Platform.runLater {
                 rootVBox.children.clear()
@@ -61,7 +56,7 @@ class SearchResultsController : Initializable {
      * @param guiObservables GUI observables
      */
     @Inject
-    fun injectGuiObservables(@Named(GUI_OBSERVABLES_NAME_KEY) guiObservables: GuiObservables) {
+    fun injectGuiObservables(guiObservables: GuiObservables) {
         guiObservables.observeLaunchBarEvent().subscribe { event ->
             when (event) {
                 LaunchBarEvent.PREVIOUS -> selectPrevious()

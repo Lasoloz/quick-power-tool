@@ -38,7 +38,6 @@ class CoreUtilsModule : AbstractModule() {
      * @return Resolver
      */
     @Provides
-    @Named(CoreConstants.Injection.CONFIG_FILE_RESOLVER_NAME_KEY)
     @Inject
     fun provideConfigFileResolver(
         @Named(CoreConstants.Injection.RELATIVE_CONFIG_DIRECTORY_NAME_KEY) relativeConfigDirectory: String

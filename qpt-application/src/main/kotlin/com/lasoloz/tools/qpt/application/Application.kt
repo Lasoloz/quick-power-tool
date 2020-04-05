@@ -1,10 +1,7 @@
 package com.lasoloz.tools.qpt.application
 
-import com.google.inject.Key
-import com.google.inject.name.Names
 import com.lasoloz.tools.qpt.actions.injection.ActionsModule
 import com.lasoloz.tools.qpt.actions.loader.ActionConfigList
-import com.lasoloz.tools.qpt.actions.util.ActionConstants.Injection.ACTION_CONFIG_LIST_NAME_KEY
 import com.lasoloz.tools.qpt.coreutils.injection.CoreUtilsModule
 import com.lasoloz.tools.qpt.gui.QptGui
 import com.lasoloz.tools.qpt.gui.action.ToggleShownStateLauncherAction
@@ -53,7 +50,7 @@ private fun setupKeyListenerDaemon(keyStrokeMap: KeyStrokeActionsMap) {
 
 private fun loadConfigs() {
     InjectorUtil.getInjector()
-        .getInstance(Key.get(ActionConfigList::class.java, Names.named(ACTION_CONFIG_LIST_NAME_KEY)))
+        .getInstance(ActionConfigList::class.java)
         .reloadActionConfigs()
 }
 

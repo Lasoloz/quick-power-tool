@@ -23,7 +23,7 @@ import com.lasoloz.tools.qpt.coreutils.util.CoreConstants
  */
 @JvmSuppressWildcards
 class ActionConfigLoader @Inject constructor(
-    @Named(CoreConstants.Injection.CONFIG_FILE_RESOLVER_NAME_KEY) private val configFileResolver: ConfigFileResolver,
+    private val configFileResolver: ConfigFileResolver,
     @Named(CoreConstants.Injection.JSON_MAPPER_NAME_KEY) private val mapper: ObjectMapper,
     @Named(ActionConstants.Injection.ACTION_CONFIG_MODEL_TO_MAPPER_NAME_KEY)
     private val modelMappers: Map<String, ActionConfigMapper>

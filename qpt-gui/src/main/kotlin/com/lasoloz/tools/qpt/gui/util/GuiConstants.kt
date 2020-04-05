@@ -14,19 +14,9 @@ object GuiConstants {
         const val GUI_RESOURCE_NAME_KEY = "GuiResourceBundle"
 
         /**
-         * Injection name for filtered action configurations observable
-         */
-        const val GUI_OBSERVABLES_NAME_KEY = "FilteredActionConfigs"
-
-        /**
          * Injection name for action config categorizer set
          */
         const val ACTION_CATEGORIZERS_NAME_KEY = "ActionCategorizers"
-
-        /**
-         * Injection name for categorized action configurations
-         */
-        const val CATEGORIZED_ACTION_CONFIGS_NAME_KEY = "CategorizedActionConfigs"
     }
 
     /**

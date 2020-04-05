@@ -9,16 +9,6 @@ object ActionConstants {
      */
     object Injection {
         /**
-         * Injection name for action configuration loader
-         */
-        const val ACTION_CONFIG_LOADER_NAME_KEY = "ActionConfigLoader"
-
-        /**
-         * Injection name for action config list
-         */
-        const val ACTION_CONFIG_LIST_NAME_KEY = "ActionConfigList"
-
-        /**
          * Injection name for map of action configuration models to their mappers
          */
         const val ACTION_CONFIG_MODEL_TO_MAPPER_NAME_KEY = "ActionConfigModelsToMappers"

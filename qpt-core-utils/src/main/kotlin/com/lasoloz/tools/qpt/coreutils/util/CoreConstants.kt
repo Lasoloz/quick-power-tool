@@ -14,11 +14,6 @@ object CoreConstants {
         const val SETUP_UNIT_NAME_KEY = "SetupUnits"
 
         /**
-         * Injection name for [com.lasoloz.tools.qpt.coreutils.platform.ConfigFileResolver]
-         */
-        const val CONFIG_FILE_RESOLVER_NAME_KEY = "ConfigFileResolver"
-
-        /**
          * Injection name for relative configuration directory
          */
         const val RELATIVE_CONFIG_DIRECTORY_NAME_KEY = "RelativeConfigDirectory"
